@@ -1,6 +1,93 @@
 import 'owl.carousel';
 
 $(document).ready(function(){
+    $('.owl-carousel_main').owlCarousel(
+
+        {
+            margin:30,
+   nav:true,
+
+   navText:[`<div class='nav-btn prev-slide'><svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M15.5455 2.42058L13.9545 0.82959L0.78402 14.0001L13.9545 27.1706L15.5455 25.5796L3.96689 14.0001L15.5455 2.42058Z" fill="#1AE160"/>
+   </svg></div>`,`<div class='nav-btn next-slide'><svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M0.454498 2.42058L2.04549 0.82959L15.216 14.0001L2.04549 27.1706L0.454498 25.5796L12.0331 14.0001L0.454498 2.42058Z" fill="#1AE160"/>
+   </svg>
+   </div>`],
+
+    responsive:{
+        0:{
+            items:1
+        }
+    }
+        }
+    );
+
+
+
+
+    $('.mainslider-review').owlCarousel(
+
+      {
+          margin:30,
+          // nav:true,
+          center:true,
+          loop:true,
+          navText:[`<div class='nav-btn prev-slide'><svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.5455 2.42058L13.9545 0.82959L0.78402 14.0001L13.9545 27.1706L15.5455 25.5796L3.96689 14.0001L15.5455 2.42058Z" fill="#1AE160"/>
+          </svg></div>`,`<div class='nav-btn next-slide'><svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.454498 2.42058L2.04549 0.82959L15.216 14.0001L2.04549 27.1706L0.454498 25.5796L12.0331 14.0001L0.454498 2.42058Z" fill="#1AE160"/>
+          </svg>
+          </div>`],
+
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2
+                },
+                1200:{
+                    items:3
+                },
+                1400:{
+                    items:3
+                }
+            }
+                }
+            );
+    $('.mainslider-letters').owlCarousel(
+
+      {
+          margin:30,
+          // nav:true,
+
+          navText:[`<div class='nav-btn prev-slide'><svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.5455 2.42058L13.9545 0.82959L0.78402 14.0001L13.9545 27.1706L15.5455 25.5796L3.96689 14.0001L15.5455 2.42058Z" fill="#1AE160"/>
+          </svg></div>`,`<div class='nav-btn next-slide'><svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.454498 2.42058L2.04549 0.82959L15.216 14.0001L2.04549 27.1706L0.454498 25.5796L12.0331 14.0001L0.454498 2.42058Z" fill="#1AE160"/>
+          </svg>
+          </div>`],
+
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2
+                },
+                1200:{
+                    items:3
+                },
+                1400:{
+                    items:4
+                }
+            }
+                }
+            );
+
+
+  });
+$(document).ready(function(){
     $('.owl-carousel2').owlCarousel(
 
         {
@@ -266,26 +353,76 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 
-let list_stage = document.querySelectorAll('.stages .hidden_stages-item')
-let list_stage_content = document.querySelectorAll('.stages .stages-block_item')
+let list_stage = document.querySelectorAll('.example .example-tab-item')
+let list_stage_content = document.querySelectorAll('.example .wrapper-item')
 
-list_stage_content[0].classList.add('active')
-list_stage[0].classList.add('active')
+if(list_stage.length >= 0){
 
-list_stage.forEach((stage, index) => {
-
-  stage.addEventListener('click', function(){
-    if(stage.classList.contains('active')){
-      // console.log(stage);
-    } else{
-      document.querySelector('.stages .hidden_stages-item.active').classList.remove('active')
-      document.querySelector('.stages .stages-block_item.active').classList.remove('active')
-      stage.classList.add('active')
-      list_stage_content[index].classList.add('active')
-
-
-
-    }
-    
+  list_stage_content[0].classList.add('active')
+  list_stage[0].classList.add('active')
+  
+  list_stage.forEach((stage, index) => {
+  
+    stage.addEventListener('click', function(){
+      if(stage.classList.contains('active')){
+        // console.log(stage);
+      } else{
+        document.querySelector('.example .example-tab-item.active').classList.remove('active')
+        document.querySelector('.example .wrapper-item.active').classList.remove('active')
+        stage.classList.add('active')
+        list_stage_content[index].classList.add('active')
+  
+  
+  
+      }
+      
+    })
   })
-})
+}
+
+
+// табы
+
+// let tab_list = document.querySelectorAll(".example-tab-item")
+// tab_list.forEach((item, index), function(){
+
+
+//   console.log(item, this)
+// })
+
+// переключение отзывов
+const tabNavRew = document.querySelectorAll('.nav_item') //навигация
+
+const tabContentRew = document.querySelectorAll('.content_item') //информация отзывов
+
+if(tabNavRew.length > 0){
+
+  tabNavRew.forEach((item, index) => {
+    item.addEventListener("click", function () {
+      makeActiveRev(index)
+    }, false)
+  })
+  
+  function makeActiveRev(a) {
+  
+    tabContentRew.forEach((tab, index) => {
+  
+      if (tab.classList.contains('active') && tab != tabContentRew[a]) {
+  
+        tab.classList.remove('active')
+        tabContentRew[a].classList.add('active')
+      }
+    })
+  
+    tabNavRew.forEach((tab, index) => {
+  
+      if (tab.classList.contains('active') && tab != tabNavRew[a]) {
+  
+        tab.classList.remove('active')
+        tabNavRew[a].classList.add('active')
+      }
+    })
+  
+  
+  }
+}
