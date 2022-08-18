@@ -30,7 +30,7 @@ $(document).ready(function(){
       {
           margin:30,
           // nav:true,
-          center:true,
+         
           loop:true,
           navText:[`<div class='nav-btn prev-slide'><svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15.5455 2.42058L13.9545 0.82959L0.78402 14.0001L13.9545 27.1706L15.5455 25.5796L3.96689 14.0001L15.5455 2.42058Z" fill="#1AE160"/>
@@ -41,16 +41,20 @@ $(document).ready(function(){
 
             responsive:{
                 0:{
-                    items:1
+                    items:1,
+                    center:false,
                 },
                 600:{
-                    items:2
+                    items:2,
+                    center:false,
                 },
                 1200:{
-                    items:3
+                    items:3,
+                    center:false,
                 },
                 1400:{
-                    items:3
+                    items:3,
+                    center:true,
                 }
             }
                 }
